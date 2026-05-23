@@ -1,0 +1,67 @@
+/* ══════════════════════════════════════
+   base.css — CSS Variables, Reset, Typography, Animations
+   ══════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg:           #f5f2ee;
+  --surface:      #ffffff;
+  --surface2:     #f0ece6;
+  --border:       #e2dcd4;
+  --ink:          #1a1612;
+  --ink2:         #6b6360;
+  --accent:       #e8440a;
+  --accent-light: #fdf0eb;
+  --green:        #1a7a4a;
+  --green-light:  #eaf5ef;
+  --blue:         #1a4f8a;
+  --blue-light:   #eaf0fa;
+  --yellow:       #b8860b;
+  --yellow-light: #fdf8e8;
+  --font-h:       'Clash Display', sans-serif;
+  --font-b:       'Satoshi', sans-serif;
+  --shadow:       0 2px 16px rgba(26,22,18,0.08);
+  --shadow-lg:    0 8px 40px rgba(26,22,18,0.14);
+  --radius:       16px;
+  --radius-sm:    10px;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-b);
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Utility ── */
+.hidden { display: none !important; }

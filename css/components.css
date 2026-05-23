@@ -1,0 +1,190 @@
+/* ══════════════════════════════════════
+   components.css — Buttons, Badges, Modal, Toast, Forms
+   ══════════════════════════════════════ */
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-b);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #c73a08; transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--ink2);
+}
+.btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
+
+.btn-danger {
+  background: #fff0f0;
+  color: #c0392b;
+  border: 1.5px solid #f5c6c6;
+}
+.btn-danger:hover { background: #c0392b; color: #fff; }
+
+.btn-sm { padding: 6px 12px; font-size: 12px; border-radius: 7px; }
+
+/* ── Badges ── */
+.badge {
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+.badge-high     { background: #fff0ec; color: var(--accent); }
+.badge-medium   { background: var(--yellow-light); color: var(--yellow); }
+.badge-low      { background: var(--green-light); color: var(--green); }
+.badge-todo     { background: var(--surface2); color: var(--ink2); }
+.badge-progress { background: var(--blue-light); color: var(--blue); }
+.badge-done     { background: var(--green-light); color: var(--green); }
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,22,18,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 36px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow-lg);
+  animation: popIn 0.3s cubic-bezier(.34,1.56,.64,1) both;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-title {
+  font-family: var(--font-h);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+/* ── Form Elements (inside modal) ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-b);
+  font-size: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+.form-select:focus { border-color: var(--accent); }
+
+.form-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-b);
+  font-size: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+  min-height: 90px;
+  transition: border-color 0.2s;
+}
+.form-textarea:focus { border-color: var(--accent); }
+
+/* ── Employee Chip Selector ── */
+.emp-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.emp-chip {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--surface);
+  font-family: var(--font-b);
+}
+.emp-chip.selected {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  animation: slideUp 0.3s ease;
+  z-index: 999;
+  font-family: var(--font-b);
+}
+
+/* ── Empty State ── */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  grid-column: 1 / -1;
+}
+.empty-icon  { font-size: 48px; margin-bottom: 12px; }
+.empty-title {
+  font-family: var(--font-h);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.empty-sub { font-size: 14px; color: var(--ink2); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .modal { padding: 24px 20px; }
+}
